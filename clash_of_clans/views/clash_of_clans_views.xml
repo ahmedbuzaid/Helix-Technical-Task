@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Clash of clans troops action -->
+        <record id="act_clash_of_clans" model="ir.actions.act_window">
+            <field name="name">Troops</field>
+            <field name="res_model">clash.of.clans.troops</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form,tree,graph</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new Troop
+                </p>
+                <p>
+                    Add new troops of clash of clans game and define their attributes
+                </p>
+            </field>
+        </record>
+
+        <!-- Clash of clans troops form -->
+        <record id="view_troop_form" model="ir.ui.view">
+            <field name="name">clash.of.clans.troops.form</field>
+            <field name="model">clash.of.clans.troops</field>
+            <field name="arch" type="xml">
+                <form string="Troop">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object"
+                                    class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <div id="o_employee_container">
+                            <div id="o_employee_main">
+                                <field name="image" widget='image' class="oe_avatar"
+                                />
+                                <div class="oe_title">
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1>
+                                        <field name="name" placeholder="Troop's Name" required="True"/>
+                                    </h1>
+                                </div>
+                                <group string="Troops Attributes" col="4">
+                                    <field name="level"/>
+                                    <field name="training_cost"/>
+                                    <field name="damage_per_second"/>
+                                    <field name="hit_points"/>
+                                    <field name="damage_per_second_temp" widget="gauge" string=""
+                                           style="width:120px;height:90px;cursor:pointer;"
+                                           options="{'max_field': 'maximum_damage_per_second_rate'}">
+                                        progress
+                                    </field>
+                                    <field name="hit_points_temp" widget="gauge" string=""
+                                           style="width:120px;height:90px;cursor:pointer;"
+                                           options="{'max_field': 'maximum_hit_points_rate'}">
+                                        progress
+                                    </field>
+                                    <field name="training_time"/>
+                                </group>
+                                <group string="Common Attributes" col="4">
+                                    <field name="favourite_target"/>
+                                    <field name="damage_type"/>
+                                    <field name="targets"/>
+                                    <field name="housing_space"/>
+                                    <field name="movement_speed"/>
+                                </group>
+                                <group string="Description">
+                                    <field name="description"/>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Troops tree view -->
+        <record id="clash_of_clans_troops_view_tree" model="ir.ui.view">
+            <field name="name">clash.of.clans.troops.tree</field>
+            <field name="model">clash.of.clans.troops</field>
+            <field name="arch" type="xml">
+                <tree string="Troops">
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="damage_per_second"/>
+                    <field name="hit_points"/>
+                    <field name="training_cost"/>
+                    <field name="training_time"/>
+                    <field name="favourite_target"/>
+                    <field name="damage_type"/>
+                    <field name="targets"/>
+                    <field name="housing_space"/>
+                    <field name="movement_speed"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Troops search view -->
+        <record id="clash_of_clans_troops_view_search" model="ir.ui.view">
+            <field name="name">clash.of.clans.troops.search</field>
+            <field name="model">clash.of.clans.troops</field>
+            <field name="arch" type="xml">
+                <search string="Search Troops">
+                    <field name="favourite_target"/>
+                    <field name="damage_type"/>
+                    <field name="targets"/>
+                    <field name="housing_space"/>
+                    <field name="movement_speed"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <separator/>
+                    <filter string="Favourite Target" name="favourite_target"
+                            domain="[('favourite_target','=','any')]"/>
+                    <separator/>
+                    <filter string="Damage Type" name="damage_type" domain="[('damage_type','=','single')]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="By Favourite Target" name="favourite_target"
+                                context="{'group_by': 'favourite_target'}"/>
+                        <filter string="By Damage Type" name="damage_type" context="{'group_by': 'damage_type'}"/>
+                        <filter string="By Targets" name="targets" context="{'group_by': 'targets'}"/>
+                        <filter string="By Housing Space" name="housing_space" context="{'group_by': 'housing_space'}"/>
+                        <filter string="By Movement Speed" name="movement_speed"
+                                context="{'group_by': 'movement_speed'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Troops graph view -->
+        <record id="clash_of_clans_troops_view_graph" model="ir.ui.view">
+            <field name="name">clash.of.clans.troops.graph</field>
+            <field name="model">clash.of.clans.troops</field>
+            <field name="arch" type="xml">
+                <graph type="bar" string="Troops">
+                    <field name="name"/>
+                    <field name="damage_per_second" type="measure"/>
+                    <field name="hit_points" type="measure"/>
+                    <field name="training_cost" type="measure"/>
+                    <field name="training_time" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Troops kanban view -->
+        <record id="clash_of_clans_troops_view_kanban" model="ir.ui.view">
+            <field name="name">clash.of.clans.troops.kanban</field>
+            <field name="model">clash.of.clans.troops</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_hr_employee_kanban">
+                    <field name="id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                                <!-- Medium Troop's picture -->
+                                <div class="o_kanban_image_fill_left d-none d-md-block"
+                                     t-attf-style="background-image: url(#{kanban_image('clash.of.clans.troops', 'image', record.id.raw_value)});"
+                                     role="img"/>
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <span t-if="record.level.raw_value" class="o_kanban_record_subtitle">
+                                                <field name="level"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li id="favourite_target"/>
+                                        <li t-if="record.damage_type.raw_value">
+                                            <field name="damage_type"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Clash of clans root menu -->
+        <menuitem
+                id="menu_clash_of_clans_root"
+                name="Clash Of Clans"
+                groups="base.group_user"
+                web_icon="clash_of_clans,static/description/icon.png"
+                sequence="1"/>
+
+        <!-- Clash of clans troops menu -->
+        <menuitem
+                id="menu_clash_of_clans_troops"
+                name="Troops"
+                groups="base.group_user"
+                parent="menu_clash_of_clans_root"
+                web_icon="clash_of_clans,static/description/icon.png"
+                action="act_clash_of_clans"
+                sequence="1"/>
+
+    </data>
+</odoo>

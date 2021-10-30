@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Barbarian -->
+        <record id="troop_barbarian" model="clash.of.clans.troops">
+            <field name="name">Barbarian</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">8</field>
+            <field name="hit_points">13</field>
+            <field name="training_cost">7</field>
+            <field name="training_time">10</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">single</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">1</field>
+            <field name="movement_speed">16</field>
+            <field name="description">This fearless warrior relies on his bulging muscles and striking
+                mustache to wreak havoc in enemy villages. Release a horde of Barbarians and enjoy the mayhem.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Barbarian.webp"/>
+        </record>
+
+        <!-- Archer -->
+        <record id="troop_archer" model="clash.of.clans.troops">
+            <field name="name">Archer</field>
+            <field name="level">3</field>
+            <field name="damage_per_second">13</field>
+            <field name="hit_points">9</field>
+            <field name="training_cost">10</field>
+            <field name="training_time">8</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">single</field>
+            <field name="targets">both</field>
+            <field name="housing_space">1</field>
+            <field name="movement_speed">12</field>
+            <field name="description">Thease sharpshooters wants to keep their distance on the battlefield
+                and in life.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Archer.webp"/>
+        </record>
+
+        <!-- Baby Dragon -->
+        <record id="troop_baby_dragon" model="clash.of.clans.troops">
+            <field name="name">Baby Dragon</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">25</field>
+            <field name="hit_points">70</field>
+            <field name="training_cost">50</field>
+            <field name="training_time">40</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">area</field>
+            <field name="targets">both</field>
+            <field name="housing_space">10</field>
+            <field name="movement_speed">20</field>
+            <field name="description">The fire-breathing is shy around other air units. But leave it alone and it will
+                through a fit
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Baby_Dragon.webp"/>
+        </record>
+
+        <!-- Dragon -->
+        <record id="troop_dragon" model="clash.of.clans.troops">
+            <field name="name">Dragon</field>
+            <field name="level">2</field>
+            <field name="damage_per_second">45</field>
+            <field name="hit_points">80</field>
+            <field name="training_cost">70</field>
+            <field name="training_time">60</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">area</field>
+            <field name="targets">both</field>
+            <field name="housing_space">25</field>
+            <field name="movement_speed">16</field>
+            <field name="description">The might of the dragons is known through out the land</field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Dragon.webp"/>
+        </record>
+
+        <!-- Healer -->
+        <record id="troop_healer" model="clash.of.clans.troops">
+            <field name="name">Healer</field>
+            <field name="level">5</field>
+            <field name="damage_per_second">0</field>
+            <field name="hit_points">45</field>
+            <field name="training_cost">30</field>
+            <field name="training_time">32</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">area</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">14</field>
+            <field name="movement_speed">16</field>
+            <field name="description">This majestic creature lives to protect and aid her follow troops</field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Healer.webp"/>
+        </record>
+
+        <!-- Hog Rider -->
+        <record id="troop_hogrider" model="clash.of.clans.troops">
+            <field name="name">Hog Rider</field>
+            <field name="level">6</field>
+            <field name="damage_per_second">80</field>
+            <field name="hit_points">60</field>
+            <field name="training_cost">90</field>
+            <field name="training_time">20</field>
+            <field name="favourite_target">defences</field>
+            <field name="damage_type">single</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">5</field>
+            <field name="movement_speed">24</field>
+            <field name="description">Having taimed the firece leaping hog. The hog raider puniches those who hide
+                behind their puny walls.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Hog_rider.webp"/>
+        </record>
+
+        <!-- Wall Breaker -->
+        <record id="troop_wallbreker" model="clash.of.clans.troops">
+            <field name="name">Wall Breaker</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">6</field>
+            <field name="hit_points">12</field>
+            <field name="training_cost">10</field>
+            <field name="training_time">4</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">area</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">2</field>
+            <field name="movement_speed">24</field>
+            <field name="description">Nothing warms a wall breaker's cold and undead heart like blowing up walls.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Wall_Breaker.webp"/>
+        </record>
+
+        <!-- Wizard -->
+        <record id="troop_wizard" model="clash.of.clans.troops">
+            <field name="name">Wizard</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">50</field>
+            <field name="hit_points">13</field>
+            <field name="training_cost">60</field>
+            <field name="training_time">15</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">area</field>
+            <field name="targets">both</field>
+            <field name="housing_space">4</field>
+            <field name="movement_speed">16</field>
+            <field name="description">The wizard is a terrifying presence on the battlefield.</field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/Wizard.webp"/>
+        </record>
+
+        <!-- Balloon -->
+        <record id="troop_balloons" model="clash.of.clans.troops">
+            <field name="name">Balloon</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">25</field>
+            <field name="hit_points">90</field>
+            <field name="training_cost">50</field>
+            <field name="training_time">90</field>
+            <field name="favourite_target">defences</field>
+            <field name="damage_type">area</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">5</field>
+            <field name="movement_speed">10</field>
+            <field name="description">Thease promoted skeletons have traded in their joy of destroying walls for a joy
+                of destroying defences.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/balloons.PNG"/>
+        </record>
+
+        <!-- Giant -->
+        <record id="troop_giant" model="clash.of.clans.troops">
+            <field name="name">Giant</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">11</field>
+            <field name="hit_points">90</field>
+            <field name="training_cost">30</field>
+            <field name="training_time">27</field>
+            <field name="favourite_target">defences</field>
+            <field name="damage_type">single</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">5</field>
+            <field name="movement_speed">12</field>
+            <field name="description">Thease big guys may seem calm. But show them a turret or cannon and you'll see
+                their fury unleashed.
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/giant.PNG"/>
+        </record>
+
+        <!-- Goblin -->
+        <record id="troop_goblin" model="clash.of.clans.troops">
+            <field name="name">Goblin</field>
+            <field name="level">1</field>
+            <field name="damage_per_second">11</field>
+            <field name="hit_points">12</field>
+            <field name="training_cost">10</field>
+            <field name="training_time">3</field>
+            <field name="favourite_target">any</field>
+            <field name="damage_type">single</field>
+            <field name="targets">ground</field>
+            <field name="housing_space">1</field>
+            <field name="movement_speed">50</field>
+            <field name="description">Thease pesky little creatures only have eyes for one thing: LOOT! They are faster
+                than a spring trap
+            </field>
+            <field name="image" type="base64" file="clash_of_clans/static/img/goblin.PNG"/>
+        </record>
+
+    </data>
+</odoo>
